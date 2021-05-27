@@ -1,1 +1,4 @@
 .history
+__pycache__
+.ipynb_checkpoints
+geotree.egg-info
