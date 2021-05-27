@@ -45,3 +45,5 @@ Table of contents
     cd /path/to/my/geotree
     python setup.py install
     ```
+
+## Interpolate values of one grid onto another one
