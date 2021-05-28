@@ -202,3 +202,15 @@ plt.show()
 ## Tree build and query times, comparison
 
 :warning: [Jupyter notebook]("./notebooks/Tree_build_query_times.ipynb")
+
+The figure compares KDTree and Ball tree for build (left) and query (right) times.
+The left panel shows the build time as a function of number of points used in the tree.
+The build times of the two methods are very similar.
+In the right panel, we first constructed a tree for one million points and then measured the time to
+query this tree with different number of queries (x-axis).
+
+See [this Jupyter notebook]("./notebooks/Tree_build_query_times.ipynb") for details. 
+
+<p align="center">
+  <img src="./images/build_query_times.png" width="100%" title="Tree build and query times, comparison">
+</p
