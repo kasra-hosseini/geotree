@@ -7,7 +7,11 @@
     <a href="https://github.com/kasra-hosseini/geotree/blob/main/LICENSE">
         <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
     </a>
-    <br/>
+    <br>
+    <p align="center">
+        <img src="./images/header.png" alt="header" width="80%" align="center">
+    </p>
+    </br>
 </p>
 
 Table of contents
