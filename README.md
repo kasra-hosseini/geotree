@@ -151,6 +151,16 @@ Choose the desired number of neighbors:
 mytree.query_balltree(num_neighs=3)
 ```
 
+Now, for each query, distances to the closest `base` neighbors and their indices are stored in (row-wise):
+
+```python
+# distances to the closest `base` neighbors
+mytree.dists2query
+
+# indices of the closest `base` neighbors
+mytree.indxs2query
+```
+
 ## Interpolate values of one grid into another one
 
 :warning: [Jupyter notebook]("./notebooks/Interpolate_one_grid_into_another.ipynb")
