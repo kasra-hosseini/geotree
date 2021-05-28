@@ -61,7 +61,7 @@ We also have another set of points, `queries` in the figure, for which we want t
 (See more results below)
 
 <p align="center">
-  <img src="./images/interp_4.png" width="80%" title="interpolation with 4 neighbours">
+  <img src="./images/interp_4.png" width="100%" title="interpolation with 4 neighbours">
 </p>
 
 Instantiate gkdtree:
@@ -130,7 +130,7 @@ mytree.interpolate(num_neighs=1, method="kdtree")
 ```
 
 <p align="center">
-  <img src="./images/interp_1.png" width="80%" title="KDTree, interpolation with 1 neighbours">
+  <img src="./images/interp_1.png" width="100%" title="KDTree, interpolation with 1 neighbours">
 </p>
 
 ```python
@@ -138,13 +138,13 @@ mytree.interpolate(num_neighs=2, method="kdtree")
 ```
 
 <p align="center">
-  <img src="./images/interp_2.png" width="80%" title="KDTree, interpolation with 2 neighbours">
+  <img src="./images/interp_2.png" width="100%" title="KDTree, interpolation with 2 neighbours">
 </p>
 
 Or on a interrupted Goode homolosine projection:
 
 <p align="center">
-  <img src="./images/interp_2_homolosine.png" width="80%" title="KDTree, interpolation with 2 neighbours">
+  <img src="./images/interp_2_homolosine.png" width="100%" title="KDTree, interpolation with 2 neighbours">
 </p>
 
 
@@ -153,7 +153,7 @@ mytree.interpolate(num_neighs=10, method="kdtree")
 ```
 
 <p align="center">
-  <img src="./images/interp_10.png" width="80%" title="KDTree, interpolation with 10 neighbours">
+  <img src="./images/interp_10.png" width="100%" title="KDTree, interpolation with 10 neighbours">
 </p>
 
 ## BallTree
@@ -165,7 +165,7 @@ mytree.interpolate(num_neighs=2, method="balltree")
 ```
 
 <p align="center">
-  <img src="./images/interp_2_bt.png" width="80%" title="Ball tree, interpolation with 2 neighbours">
+  <img src="./images/interp_2_bt.png" width="100%" title="Ball tree, interpolation with 2 neighbours">
 </p>
 
 
