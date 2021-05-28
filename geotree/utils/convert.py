@@ -23,6 +23,7 @@ def lonlatdep2xyz(lons: Union[float, int, np.ndarray, list],
     lons : Union[float, int, np.ndarray, list]
     lats : Union[float, int, np.ndarray, list]
     depths : Union[float, int, np.ndarray, list, None], optional
+    return_one_arr : Union[bool], optional
     """
 
     lons = convert2array(lons)
@@ -43,8 +44,7 @@ def lonlatdep2xyz(lons: Union[float, int, np.ndarray, list],
         return x, y, z
 
 def convert2array(myinp):
-    """Convert myinp ---> np.ndarray
-    """
+    """Convert myinp ---> np.ndarray"""
     if isinstance(myinp, np.ndarray):
         return myinp
     elif isinstance(myinp, list):

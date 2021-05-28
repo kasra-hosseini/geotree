@@ -2,12 +2,12 @@ import setuptools
 
 setuptools.setup(
     name="geotree",
-    version="0.0.1",
-    description="GeoTree: find nearest-neighbours on geographic coordinates",
+    version="0.0.2",
+    description="GeoTree: nearest-neighbors on geographic coordinates",
     author=u"Kasra Hosseini",
     #author_email="",
     license="MIT License",
-    keywords=["KDTree", "nearest neighbor", "geographic coordinates"],
+    keywords=["KDTree", "Ball tree", "nearest neighbor", "geographic coordinates"],
     long_description = open('README.md').read(),
     long_description_content_type = 'text/markdown',
     zip_safe = False,
@@ -16,7 +16,7 @@ setuptools.setup(
     include_package_data = True,
     platforms="OS Independent",
     python_requires='>=3.6',
-    install_requires=["scipy", "pyproj", "matplotlib", "numpy"],
+    install_requires=["scikit-learn", "pyproj", "scipy", "numpy", "matplotlib"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",

@@ -1,1 +1,1 @@
-from geotree.kdtree_core.kdtree import gkdtree
+from geotree.tree_core.tree import gtree
