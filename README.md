@@ -163,7 +163,7 @@ mytree.indxs2query
 
 ## Interpolate values of one grid into another one
 
-:warning: [Jupyter notebook]("./notebooks/Interpolate_one_grid_into_another.ipynb")
+:warning: [Jupyter notebook](notebooks/Interpolate_one_grid_into_another.ipynb)
 
 Here, we have a set of points, labelled as `base` in the figure below, with some values (i.e., colors of those points).
 We also have another set of points, `queries` in the figure, for which we want to compute values using the values of `base`. 
