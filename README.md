@@ -14,7 +14,9 @@ Table of contents
 -----------------
 
 - [Installation and setup](#installation)
-- [Interpolate values of one grid into another one](#interpolate-values-of-one-grid-into-another-one)
+- [Tutorials](#tutorials)
+  - [Find closest neighbors (KDTree and BallTree)](#find-closest-neighbors-kdtree-and-balltree)
+  - [Interpolate values of one grid into another one](#interpolate-values-of-one-grid-into-another-one)
 - [Tree build and query times, comparison between KDTree and BallTree](#tree-build-and-query-times-comparison)
 
 ## Installation
@@ -46,8 +48,108 @@ Table of contents
     cd /path/to/my/geotree
     python setup.py install
     ```
+  
+# Tutorials
+
 ## Find closest neighbors (KDTree and BallTree)
 
+:warning: [Jupyter notebook]("./notebooks/Find_closest_neighbors_kdtree_balltree.ipynb")
+
+Instantiate gtree:
+
+```python
+from geotree import gtree
+import matplotlib.pyplot as plt
+import numpy as np
+
+mytree = gtree()
+```
+
+Define the first set of points or `base`:
+
+```python
+npoints = 200
+lons = np.random.randint(-180, 180, npoints)
+lats = np.random.randint(-90, 90, npoints)
+depths = np.zeros(npoints)
+```
+
+Add lons/lats/depths of the first set of points:
+
+```python
+mytree.add_lonlatdep(lons=lons, 
+                     lats=lats, 
+                     depths=depths)
+```
+
+Define queries:
+
+```python
+q_npoints = 10
+q_lons = np.random.randint(-150, 150, q_npoints)
+q_lats = np.random.randint(-70, 70, q_npoints)
+q_depths = np.zeros(q_npoints)
+```
+
+Add lons/lats/depths of queries:
+
+```python
+mytree.add_lonlatdep_query(lons=q_lons, 
+                           lats=q_lats, 
+                           depths=q_depths)
+```
+
+### Find neighbors, kdtree:
+
+Create KDTree (kdt):
+
+```python
+mytree.create_kdt()
+```
+
+Choose the desired number of neighbors (and upper bound for distance, if needed):
+
+```python
+mytree.query_kdt(num_neighs=3, distance_upper=np.inf)
+```
+
+Now, for each query, distances to the closest `base` neighbors and their indices are stored in (row-wise):
+
+```python
+# distances to the closest `base` neighbors
+mytree.dists2query
+
+# indices of the closest `base` neighbors
+mytree.indxs2query
+```
+
+The results are shown in the following figure. 
+The `base` points are shown in black dots and the queries are shown by `X`.
+The closest three `base` neighbors are connected to each query.
+
+<p align="center">
+  <img src="./images/find_closest_kdtree.png" width="80%" title="find nearest neighbors, KDTreee">
+</p>
+
+Same results but on a interrupted Goode homolosine projection:
+
+<p align="center">
+  <img src="./images/find_closest_kdtree_projected.png" width="80%" title="find nearest neighbors, KDTreee">
+</p>
+
+### Find neighbors, Ball tree:
+
+Create Ball tree:
+
+```python
+mytree.create_balltree()
+```
+
+Choose the desired number of neighbors:
+
+```python
+mytree.query_balltree(num_neighs=3)
+```
 
 ## Interpolate values of one grid into another one
 
@@ -66,13 +168,12 @@ We also have another set of points, `queries` in the figure, for which we want t
   <img src="./images/interp_4.png" width="100%" title="interpolation with 4 neighbours">
 </p>
 
-Instantiate gkdtree:
+Instantiate gtree:
 
 ```python
 from geotree import gtree
 import numpy as np
 
-# instantiate gtree
 mytree = gtree()
 ```
 
