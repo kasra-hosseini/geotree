@@ -14,7 +14,7 @@ Table of contents
 -----------------
 
 - [Installation and setup](#installation)
-- [Interpolate values of one grid into another one](#interpolate-values-from-one-grid-into-another-one)
+- [Interpolate values of one grid into another one](#interpolate-values-of-one-grid-into-another-one)
 - [Tree build and query times, comparison between KDTree and BallTree](#tree-build-and-query-times-comparison)
 
 ## Installation
@@ -198,3 +198,7 @@ plt.grid()
 plt.tight_layout()
 plt.show()
 ```
+
+## Tree build and query times, comparison
+
+:warning: [Jupyter notebook]("./notebooks/Tree_build_query_times.ipynb")
