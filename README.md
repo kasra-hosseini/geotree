@@ -46,6 +46,8 @@ Table of contents
     cd /path/to/my/geotree
     python setup.py install
     ```
+## Find closest neighbors (KDTree and BallTree)
+
 
 ## Interpolate values of one grid into another one
 
