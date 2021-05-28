@@ -128,13 +128,13 @@ The `base` points are shown in black dots and the queries are shown by `X`.
 The closest three `base` neighbors are connected to each query.
 
 <p align="center">
-  <img src="./images/find_closest_kdtree.png" width="80%" title="find nearest neighbors, KDTreee">
+  <img src="./images/find_closest_kdtree.png" width="100%" title="find nearest neighbors, KDTreee">
 </p>
 
 Same results but on a interrupted Goode homolosine projection:
 
 <p align="center">
-  <img src="./images/find_closest_kdtree_projected.png" width="80%" title="find nearest neighbors, KDTreee">
+  <img src="./images/find_closest_kdtree_projected.png" width="100%" title="find nearest neighbors, KDTreee">
 </p>
 
 ### Find neighbors, Ball tree:
