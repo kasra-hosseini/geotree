@@ -21,7 +21,7 @@ Table of contents
 - [Tutorials](#tutorials)
   - [Find closest neighbors (KDTree and BallTree)](#find-closest-neighbors-kdtree-and-balltree)
   - [Interpolate values of one grid into another one](#interpolate-values-of-one-grid-into-another-one)
-  - [Conversion between lon/lat/depth and x/y/z](#)
+  - [Conversion between lon/lat/depth and x/y/z](#conversion-between-lonlatdepth-and-xyz)
 - [Tree build and query times, comparison between KDTree and BallTree](#tree-build-and-query-times-comparison)
 
 ## Installation
@@ -350,6 +350,8 @@ plt.show()
 ```
 
 ## Conversion between lon/lat/depth and x/y/z
+
+:warning: [Jupyter notebook](notebooks/Conversion_between_lon-lat-depth_and_x-y-z.ipynb)
 
 `geotree` can read lon/lat/depth or x/y/z as inputs. Here is a list of relevant functions:
 - `add_lonlatdep` (depth should be in meters; positive depths specify points inside the Earth.)
