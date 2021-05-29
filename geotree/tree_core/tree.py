@@ -44,7 +44,7 @@ class gtree:
         self.lats = lats
         self.depths = depths
         if convert2xyz:
-            self.xyz = convert.lonlatdep2xyz(lons, lats, depths)
+            self.xyz = convert.lonlatdep2xyz_spherical(lons, lats, depths)
     
     def add_vals(self,
                  vals: Union[float, int, np.ndarray, list]):
@@ -74,7 +74,7 @@ class gtree:
         self.lats_q = lats
         self.depths_q = depths
         if convert2xyz:
-            self.xyz_q = convert.lonlatdep2xyz(lons, lats, depths)
+            self.xyz_q = convert.lonlatdep2xyz_spherical(lons, lats, depths)
 
     def add_xyz(self, 
                 x: Union[list, np.ndarray], 
@@ -114,7 +114,7 @@ class gtree:
         """Create a KD-tree based on self.xyz"""
         if self.xyz is None:
             try:
-                self.xyz = convert.lonlatdep2xyz(self.lons, self.lats, self.depths)
+                self.xyz = convert.lonlatdep2xyz_spherical(self.lons, self.lats, self.depths)
             except Exception:
                 print("[ERROR] xyz could not be found! Use add_lonlatdep")
                 return None
@@ -133,7 +133,7 @@ class gtree:
         """
         if self.xyz_q is None:
             try:
-                self.xyz_q = convert.lonlatdep2xyz(self.lons_q, self.lats_q, self.depths_q)
+                self.xyz_q = convert.lonlatdep2xyz_spherical(self.lons_q, self.lats_q, self.depths_q)
             except Exception:
                 print("[ERROR] Query's xyz_q could not be found! Use add_lonlatdep_query")
                 return None
