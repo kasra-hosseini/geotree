@@ -86,6 +86,14 @@ mytree.add_lonlatdep(lons=lons,
                      depths=depths)
 ```
 
+:warning: NOTE: depth is specified with respect to the Earth surface and in meters. 
+Its axis points towards the center of the Earth, that is, positive depths specify points inside the Earth.
+Negative depths specify points above the Earth surface.
+
+:warning: In the above example, we used `add_lonlatdep`. 
+For KDTree, these values are converted into x/y/z (Cartesian coordinate system) internally (and in meters).
+If you already have x/y/z in meters, you can use `add_xyz` function.
+
 Define queries:
 
 ```python
@@ -102,6 +110,14 @@ mytree.add_lonlatdep_query(lons=q_lons,
                            lats=q_lats, 
                            depths=q_depths)
 ```
+
+:warning: NOTE: depth is specified with respect to the Earth surface and in meters. 
+Its axis points towards the center of the Earth, that is, positive depths specify points inside the Earth.
+Negative depths specify points above the Earth surface.
+
+:warning: In the above example, we used `add_lonlatdep_query`. 
+For KDTree, these values are converted into x/y/z (Cartesian coordinate system) internally (and in meters).
+If you already have x/y/z in meters, you can use `add_xyz_q` function.
 
 ### Find neighbors, kdtree:
 
@@ -213,6 +229,14 @@ mytree.add_lonlatdep(lons=lons,
                      depths=depths)
 ```
 
+:warning: NOTE: depth is specified with respect to the Earth surface and in meters. 
+Its axis points towards the center of the Earth, that is, positive depths specify points inside the Earth.
+Negative depths specify points above the Earth surface.
+
+:warning: In the above example, we used `add_lonlatdep`. 
+For KDTree, these values are converted into x/y/z (Cartesian coordinate system) internally (and in meters).
+If you already have x/y/z in meters, you can use `add_xyz` function
+
 Define queries:
 
 ```python
@@ -229,6 +253,14 @@ mytree.add_lonlatdep_query(lons=q_lons,
                            lats=q_lats, 
                            depths=q_depths)
 ```
+
+:warning: NOTE: depth is specified with respect to the Earth surface and in meters. 
+Its axis points towards the center of the Earth, that is, positive depths specify points inside the Earth.
+Negative depths specify points above the Earth surface.
+
+:warning: In the above example, we used `add_lonlatdep_query`. 
+For KDTree, these values are converted into x/y/z (Cartesian coordinate system) internally (and in meters).
+If you already have x/y/z in meters, you can use `add_xyz_q` function.
 
 Assign values to the first set of points: (note: size of vals should be the same as the first set of points)
 
