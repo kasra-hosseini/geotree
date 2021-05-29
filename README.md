@@ -21,6 +21,7 @@ Table of contents
 - [Tutorials](#tutorials)
   - [Find closest neighbors (KDTree and BallTree)](#find-closest-neighbors-kdtree-and-balltree)
   - [Interpolate values of one grid into another one](#interpolate-values-of-one-grid-into-another-one)
+  - [Conversion between lon/lat/depth and x/y/z](#)
 - [Tree build and query times, comparison between KDTree and BallTree](#tree-build-and-query-times-comparison)
 
 ## Installation
@@ -346,6 +347,109 @@ plt.colorbar()
 plt.grid()
 plt.tight_layout()
 plt.show()
+```
+
+## Conversion between lon/lat/depth and x/y/z
+
+`geotree` can read lon/lat/depth or x/y/z as inputs. Here is a list of relevant functions:
+- `add_lonlatdep` (depth should be in meters; positive depths specify points inside the Earth.)
+- `add_lonlatdep_query` (same as above except for queries)
+- `add_xyz` (in meters)
+- `add_xyz_q` (for queries, in meters)
+
+In this section, we show two functions in geotree: `lonlatdep2xyz_spherical` and `xyz2lonlatdep_spherical`. 
+These are used internally to convert between lon/lat/dep and x/y/z.
+
+```python
+from geotree import convert as geoconvert
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+Define a set of lons/lats/depths:
+
+```python
+npoints = 100
+lons = np.random.randint(-180, 180, npoints)
+lats = np.random.randint(-90, 90, npoints)
+depths = np.zeros(npoints)
+```
+
+### lons/lats/depths ---> x/y/z
+
+Here, we use `geoconvert.lonlatdep2xyz_spherical` to convert lons/lats/depths ---> x/y/z (in meters)
+
+:warning: We set depths to zeros, i.e., all points are on a sphere with a radius of 6371000 meters.
+
+```python
+x, y, z = geoconvert.lonlatdep2xyz_spherical(lons, 
+                                             lats, 
+                                             depths, 
+                                             return_one_arr=False)
+```
+
+In the figure:
+- Left pabel: in geographic coordinate
+- Right panel: x/y/z in meters (on a sphere with radius of 6371000m)
+
+<p align="center">
+  <img src="./images/lonlat_xyz.png" width="100%" title="Conversion between lon/lat/depth and x/y/z">
+</p
+
+To plot the above figure:
+
+```python
+fig = plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 2, 1)
+
+plt.scatter(lons, lats,
+            c="k", 
+            marker="o",
+            zorder=100)
+
+plt.xlabel("lons", size=20)
+plt.ylabel("lats", size=20)
+plt.xticks(size=14); plt.yticks(size=14)
+plt.xlim(-180, 180); plt.ylim(-90, 90)
+plt.grid()
+
+# ---
+ax = fig.add_subplot(1, 2, 2, projection='3d')
+
+ax.scatter3D(x, y, z, c="k", marker="o");
+
+ax.set_xlabel('X (m)', size=16)
+ax.set_ylabel('Y (m)', size=16)
+ax.set_zlabel('Z (m)', size=16)
+
+plt.tight_layout()
+plt.show()
+```
+
+### x/y/z ---> lons/lats/depths
+
+Just as test, we now use `geoconvert.xyz2lonlatdep_spherical` to convert x/y/z back to lons/lats/depths:
+
+```python
+lons_conv, lats_conv, depths_conv = geoconvert.xyz2lonlatdep_spherical(x, y, z, 
+                                                                       return_one_arr=False)
+```
+
+and, we measure the L1 error between original lons/lats/depths and the ones computed above:
+
+```python
+print(max(abs(lons - lons_conv)))
+print(max(abs(lats - lats_conv)))
+print(max(abs(depths - depths_conv)))
+```
+
+Outputs:
+
+```bash
+2.842170943040401e-14
+2.842170943040401e-14
+9.313225746154785e-10
 ```
 
 ## Tree build and query times, comparison
