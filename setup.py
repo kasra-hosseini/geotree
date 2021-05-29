@@ -16,7 +16,7 @@ setuptools.setup(
     include_package_data = True,
     platforms="OS Independent",
     python_requires='>=3.6',
-    install_requires=["scikit-learn", "pyproj", "scipy", "numpy", "matplotlib"],
+    install_requires=["scikit-learn", "scipy", "numpy", "matplotlib"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",
